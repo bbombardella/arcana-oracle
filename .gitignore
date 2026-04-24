@@ -1,0 +1,35 @@
+# Build artifacts
+bootstrap
+bin/
+dist/
+
+# Terraform
+infra/.terraform/
+infra/.terraform.lock.hcl
+infra/*.tfstate
+infra/*.tfstate.backup
+infra/override.tf
+infra/override.tf.json
+*.tfvars
+!*.tfvars.example
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Go
+*.test
+*.out
+vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+.docker
+
+CLAUDE.local.md
+
+infra/.aws-sam-iacs

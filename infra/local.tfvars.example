@@ -1,0 +1,12 @@
+aws_region        = "eu-west-3"
+cloudfront_origin = "http://localhost:5173"  # Vite dev server, adjust if needed
+scw_api_url       = "https://api.scaleway.ai/<deployment-uuid>/v1/chat/completions"
+scw_secret_key    = "your-scaleway-secret-key"
+dynamodb_endpoint = "http://dynamodb-local:8000"
+
+tags = {
+  Project     = "arcana"
+  Module      = "ai"
+  Environment = "local"
+  ManagedBy   = "terraform"
+}
