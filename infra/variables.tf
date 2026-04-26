@@ -31,7 +31,7 @@ variable "tags" {
   type        = map(string)
   default = {
     Project     = "arcana"
-    Module      = "ia"
+    Module      = "ai"
     Environment = "production"
     ManagedBy   = "terraform"
   }
