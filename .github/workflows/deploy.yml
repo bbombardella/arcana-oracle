@@ -3,6 +3,10 @@ name: Deploy
 on:
   push:
     branches: [main]
+    paths:
+      - "src/**"
+      - "infra/**"
+      - ".github/workflows/**"
 
 permissions:
   id-token: write
