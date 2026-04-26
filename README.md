@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[![Go](https://img.shields.io/badge/Go-1.24-20232a?style=flat-square&logo=go&logoColor=00add8)](https://go.dev)
+[![Go](https://img.shields.io/badge/Go-1.26-20232a?style=flat-square&logo=go&logoColor=00add8)](https://go.dev)
 [![AWS Lambda](https://img.shields.io/badge/AWS_Lambda-arm64-20232a?style=flat-square&logo=awslambda&logoColor=ff9900)](https://aws.amazon.com/lambda)
 [![Terraform](https://img.shields.io/badge/Terraform-1.7+-20232a?style=flat-square&logo=terraform&logoColor=7b42bc)](https://www.terraform.io)
 [![Scaleway AI](https://img.shields.io/badge/Scaleway_AI-Mistral-20232a?style=flat-square&logo=scaleway&logoColor=4f0599)](https://www.scaleway.com/en/generative-apis)
