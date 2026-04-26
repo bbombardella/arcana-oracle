@@ -18,7 +18,7 @@
 
 ## ✦ À propos
 
-**Arcana Oracle** est le backend API de l'application [Arcana](../arcana). Il expose un service HTTP de génération de lectures de tarot et d'astrologie, propulsé par **Mistral Small 3.2 24B** via l'API Scaleway — en gardant la clé secrète côté serveur.
+**Arcana Oracle** est le backend API de l'application [Arcana](https://github.com/bbombardella/arcana). Il expose un service HTTP de génération de lectures de tarot et d'astrologie, propulsé par **Mistral Small 3.2 24B** via l'API Scaleway — en gardant la clé secrète côté serveur.
 
 Déployé en tant que fonction AWS Lambda (Graviton2, arm64), derrière API Gateway HTTP API V2.
 
