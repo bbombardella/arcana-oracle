@@ -7,12 +7,11 @@ type CardRequest struct {
 }
 
 type CardInfo struct {
-	Id       string `json:"id"`       // e.g. "major-13", "cups-07"
+	Id       string `json:"id"` // e.g. "major-13", "cups-07"
 	Reversed bool   `json:"reversed"`
 }
 
 type PositionInfo struct {
-	Index      int    `json:"index"`
-	Label      string `json:"label"`
-	SpreadSize int    `json:"spreadSize"`
+	Index      int `json:"index"`
+	SpreadSize int `json:"spreadSize"`
 }

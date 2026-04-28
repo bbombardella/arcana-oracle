@@ -44,6 +44,12 @@ func (h *CardHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "unsupported language", http.StatusBadRequest)
 		return
 	}
+	if req.Position != nil {
+		if _, ok := prompts.PositionLabel(req.Position.SpreadSize, req.Position.Index); !ok {
+			http.Error(w, "invalid position", http.StatusBadRequest)
+			return
+		}
+	}
 
 	// DynamoDB cache lookup
 	if cached, hit, err := h.cache.Get(r.Context(), req.Card.Id, req.Card.Reversed, req.Lang); err == nil && hit {

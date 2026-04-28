@@ -29,6 +29,14 @@ func (h *SpreadHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "invalid payload", http.StatusBadRequest)
 		return
 	}
+	if !prompts.ValidSpreadSize(req.SpreadSize) {
+		http.Error(w, "invalid spread size", http.StatusBadRequest)
+		return
+	}
+	if len(req.Cards) != req.SpreadSize {
+		http.Error(w, "cards count does not match spread size", http.StatusBadRequest)
+		return
+	}
 	for _, c := range req.Cards {
 		if !cards.Valid(c.Id) {
 			http.Error(w, "unknown card id: "+c.Id, http.StatusBadRequest)

@@ -37,8 +37,10 @@ func BuildCardPrompt(req types.CardRequest) string {
 
 	fmt.Fprintf(&sb, "La carte %q vient de se révéler.\n", cards.Name(req.Card.Id))
 
-	if req.Position != nil && req.Position.Label != "" {
-		fmt.Fprintf(&sb, "Elle occupe la position %q dans le tirage.\n", req.Position.Label)
+	if req.Position != nil {
+		if label, ok := PositionLabel(req.Position.SpreadSize, req.Position.Index); ok {
+			fmt.Fprintf(&sb, "Elle occupe la position %q dans le tirage.\n", label)
+		}
 	}
 
 	if req.Card.Reversed {
@@ -52,10 +54,27 @@ func BuildCardPrompt(req types.CardRequest) string {
 }
 
 // spreadLabels maps spread size to ordered position labels.
+// Allowed spread sizes are 1, 3, and 5.
 var spreadLabels = map[int][]string{
 	1: {"Votre arcane"},
 	3: {"Passé", "Présent", "Futur"},
 	5: {"Situation", "Obstacle", "Fondation", "Passé", "Futur"},
+}
+
+// ValidSpreadSize reports whether size is a supported spread size.
+func ValidSpreadSize(size int) bool {
+	_, ok := spreadLabels[size]
+	return ok
+}
+
+// PositionLabel returns the canonical label for a position within a spread.
+// Returns ("", false) if size or index is invalid.
+func PositionLabel(spreadSize, index int) (string, bool) {
+	labels, ok := spreadLabels[spreadSize]
+	if !ok || index < 0 || index >= len(labels) {
+		return "", false
+	}
+	return labels[index], true
 }
 
 func BuildSpreadPrompt(req types.SpreadRequest) string {
